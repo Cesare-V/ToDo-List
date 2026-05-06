@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+<script defer src="main.js"></script></head>
+
+<body>
+    <header class="header">
+        <!-- PARTE SINISTRA  -->
+        <div class="logo">TodoList</div>
+        <div class="user-info">
+            <img src="1475c71847daff01809a.jpg" alt="User Avatar" class="avatar">
+            <img src="5cecdfd868a3f598f789.svg" alt="Notifications">
+            <p>Cesare</p>
+        </div>
+
+        <!-- PARTE DESTRA -->
+        <div class="search-bar">
+            <label for="search">
+                <img src="a6ada159cb20d2aee8eb.svg" alt="Search">
+            </label>
+            <input type="text" id="search" placeholder="Search...">
+        </div>
+    </header>
+
+    <div class="layout">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="" class="menu-item active" active>Inbox</a></li>
+                    <li><a href="" class="menu-item today">Oggi</a></li>
+                    <li><a href="" class="menu-item tomorrow">Domani</a></li>
+                    <li><a href="" class="menu-item week">Questa settimana</a></li>
+                </ul>
+
+                <div class="section-header">
+                    <span class="section-title">Progetti</span>
+                    <button class="add-btn">
+                        <span class="material-symbols-outlined">+</span>
+                    </button>
+                </div>
+                <div class="project-wrapper"></div>
+            </nav>
+        </aside>
+
+        <section>
+            <main class="main-content"></main>
+        </section>
+    </div>
+</body>
+
+</html>
