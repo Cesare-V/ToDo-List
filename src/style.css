@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* ── Variabili ── */
+:root {
+  --accent:       #6C63FF;
+  --accent-light: #EEEEFF;
+  --accent-dark:  #4B44CC;
+  --text-primary: #1a1a2e;
+  --text-muted:   #8888aa;
+  --border:       rgba(255, 255, 255, 0.35);
+  --sidebar-w:    240px;
+  --header-h:     60px;
+  --radius:       14px;
+  --transition:   0.18s ease;
+}
+
+/* ── Reset ── */
+*, *::before, *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+/* ── Sfondo con gradiente — il glassmorphism ha bisogno di uno sfondo colorato ── */
+body {
+  font-family: Saira, Geneva, Tahoma, sans-serif;
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #c9c4ff 0%, #e0d7ff 40%, #f0eaff 70%, #dce8ff 100%);
+  background-attachment: fixed;
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  height: var(--header-h);
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-family: 'Josefin Slab', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-info img { width: 20px; height: 20px; opacity: 0.6; }
+
+.avatar {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.user-info p {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 6px 14px;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.search-bar:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.15);
+}
+
+.search-bar img { width: 16px; height: 16px; opacity: 0.5; }
+
+.search-bar input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 13px;
+  color: var(--text-primary);
+  width: 180px;
+  font-family: Saira, sans-serif;
+}
+
+.search-bar input::placeholder { color: var(--text-muted); }
+
+/* ── Layout ── */
+.layout {
+  display: grid;
+  grid-template-columns: var(--sidebar-w) 1fr;
+  height: calc(100vh - var(--header-h));
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-right: 1px solid var(--border);
+  padding: 20px 12px;
+  overflow-y: auto;
+}
+
+nav ul { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: all var(--transition);
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  background: rgba(108, 99, 255, 0.12);
+  color: var(--accent);
+}
+
+.menu-item.active {
+  background: rgba(108, 99, 255, 0.15);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 12px 8px;
+}
+
+.section-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.add-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  padding: 2px 6px;
+  border-radius: 6px;
+  transition: all var(--transition);
+}
+
+.add-btn:hover {
+  color: var(--accent);
+  background: rgba(108, 99, 255, 0.12);
+}
+
+.project-wrapper { display: flex; flex-direction: column; gap: 2px; }
+
+/* ── Main content ── */
+.main-content {
+  padding: 32px 36px;
+  overflow-y: auto;
+}
+
+.main-content h2 {
+  font-family: 'Josefin Slab', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+}
+
+/* ── Form todo ── */
+form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+form input:not([type="date"]):not([type="checkbox"]) {
+  flex: 1;
+  padding: 11px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-family: Saira, sans-serif;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+form input:not([type="date"]):not([type="checkbox"]):focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.15);
+}
+
+form input[type="date"] {
+  padding: 11px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-family: Saira, sans-serif;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  color: var(--text-muted);
+  outline: none;
+  cursor: pointer;
+  transition: border-color var(--transition);
+}
+
+form input[type="date"]:focus { border-color: var(--accent); }
+
+form button[type="submit"],
+.main-content > button {
+  padding: 11px 22px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 13.5px;
+  font-weight: 600;
+  font-family: Saira, sans-serif;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 4px 14px rgba(108, 99, 255, 0.3);
+}
+
+form button:hover,
+.main-content > button:hover {
+  background: var(--accent-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(108, 99, 255, 0.4);
+}
+
+/* ── Todo card ── */
+.todo-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 12px rgba(108, 99, 255, 0.06);
+  transition: all var(--transition);
+}
+
+.todo-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(108, 99, 255, 0.12);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.todo-card.completed span {
+  text-decoration: line-through;
+  opacity: 0.4;
+}
+
+.todo-card input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.todo-card span {
+  flex: 1;
+  margin: 0 12px;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.todo-card button {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: all var(--transition);
+}
+
+.todo-card button:hover {
+  color: #e05555;
+  background: rgba(224, 85, 85, 0.1);
+}
+
+/* ── Progetti nella sidebar ── */
+.project-wrapper .menu-item {
+  justify-content: space-between;
+}
+
+.project-wrapper .menu-item button {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 13px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity var(--transition), color var(--transition);
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.project-wrapper .menu-item:hover button { opacity: 1; }
+.project-wrapper .menu-item button:hover { color: #e05555; }
+
+/* ── Material icons ── */
+.material-symbols-outlined {
+  font-size: 18px;
+  vertical-align: middle;
+}

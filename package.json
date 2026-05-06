@@ -1,0 +1,33 @@
+{
+  "name": "todo-list",
+  "version": "1.0.0",
+  "description": "Progetto Lista di cose da fare - The Odin Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cesare-V/ToDo-List.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Cesare-V/ToDo-List/issues"
+  },
+  "homepage": "https://github.com/Cesare-V/ToDo-List#readme",
+  "devDependencies": {
+    "css-loader": "^7.1.4",
+    "html-loader": "^5.1.0",
+    "html-webpack-plugin": "^5.6.7",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.106.2",
+    "webpack-cli": "^7.0.2",
+    "webpack-dev-server": "^5.2.3"
+  },
+  "dependencies": {
+    "date-fns": "^4.1.0"
+  }
+}
